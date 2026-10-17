@@ -1,0 +1,12 @@
+/tests
+/.idea
+/backend/__pycache__
+/backend/matches
+/backend/parsed-demos
+/backend/demo-list
+/backend/.venv
+/backend/test.html
+/backend/test.py
+
+/frontend/demo-viewer-frontend/dist
+/frontend/demo-viewer-frontend/node-modules
