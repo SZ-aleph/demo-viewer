@@ -1,0 +1,234 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 80vh;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.container.has-results {
+  justify-content: flex-start;
+  margin-top: 5vh;
+  min-height: auto;
+}
+
+.logo {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+  color: #fff;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #aa3bff, #ff3b88);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.search-bar-container {
+  width: 100%;
+  max-width: 650px;
+  min-height: 56px;
+  padding: 8px 16px;
+  border-radius: 30px;
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  color: var(--text);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  cursor: text;
+}
+
+.search-bar-container:focus-within {
+  border-color: var(--input-focus);
+  box-shadow: 0 4px 20px rgba(170, 59, 255, 0.2);
+  background-color: #242424;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 120px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 1.1rem;
+  outline: none;
+  padding: 4px 8px;
+}
+
+.search-input::placeholder {
+  color: #777;
+}
+
+.tag-chip {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  gap: 8px;
+  text-transform: capitalize;
+}
+
+.tag-chip .remove-tag {
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 0;
+  opacity: 0.6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.tag-chip .remove-tag:hover {
+  opacity: 1;
+}
+
+.type-player {
+  background-color: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.type-map {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.type-round {
+  background-color: rgba(244, 63, 94, 0.15);
+  color: #fb7185;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+.type-side {
+  background-color: rgba(234, 179, 8, 0.15);
+  color: #facc15;
+  border: 1px solid rgba(234, 179, 8, 0.3);
+}
+
+.header-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: top center;
+}
+
+.header-section.compact {
+  transform: scale(0.7);
+  opacity: 0.5;
+  cursor: pointer;
+  margin-bottom: -20px;
+}
+
+.header-section.compact:hover {
+  opacity: 0.8;
+  transform: scale(0.75);
+}
+
+.header-section.compact .search-bar-container {
+  pointer-events: none; /* Let clicks pass to header-section so we can focus input manually */
+}
+
+.dashboard {
+  margin-top: 30px;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.heatmap-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  max-width: 320px;
+}
+
+.replay-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 2.5;
+  max-width: 800px;
+}
+
+.heatmap-title, .replay-title {
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+  color: #ccc;
+  font-weight: 600;
+}
+
+.heatmap-img, .replay-map-bg {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid #333;
+  display: block;
+}
+
+.replay-map-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.player-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.05s linear;
+  z-index: 10;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.grenade-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+}
+
+.player-dir {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.9);
+  transform-origin: 0% 50%;
+  pointer-events: none;
+}
+
